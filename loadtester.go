@@ -23,11 +23,10 @@ func (loadTester *LoadTester) RunTaskLoop() {
 	var wg sync.WaitGroup
 	wg.Add(loadTester.config.NumberOfTasks)
 	for i := 0; i < loadTester.config.NumberOfTasks; i++ {
-		go func() {
-			var currentTask = i
+		go func(currentTask int) {
 			loadTester.RunCallLoop(currentTask)
 			wg.Done()
-		}()
+		}(i)
 	}
 	wg.Wait()
 	loadTester.programLogger.LogSuccess("Run completed!")
