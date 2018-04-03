@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"sync"
+	"time"
 )
 
 type LoadTester struct {
@@ -44,6 +45,7 @@ func (loadTester *LoadTester) RunOnce(task int, call int) {
 
 	reqString := fmt.Sprintf("Task %d, Call %d on %s", task, call, loadTester.config.RequestUrl)
 	loadTester.programLogger.LogSuccess(reqString)
+	start := time.Now()
 
 	if loadTester.config.RequestVerb == "GET" {
 		resp, err = http.Get(loadTester.config.RequestUrl)
@@ -71,4 +73,8 @@ func (loadTester *LoadTester) RunOnce(task int, call int) {
 			task, call, resp.StatusCode, resp.Status)
 		loadTester.programLogger.LogSuccess(successText)
 	}
+
+	elapsed := time.Since(start)
+	elapsedMessage := fmt.Sprintf("Task %d, Call %d took %s", task, call, elapsed)
+	loadTester.programLogger.LogSuccess(elapsedMessage)
 }

@@ -3,6 +3,6 @@
   "RequestVerb": "GET",
   "PostBody": "{}",
   "PostContentType": "application/json",
-  "NumberOfTasks": 10000,
+  "NumberOfTasks": 100000,
   "CallsPerTask": 5
 }
