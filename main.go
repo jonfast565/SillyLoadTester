@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Printf("=== Silly Load Test ===\n")
+	fmt.Printf("=== Silly Load Test ===" + getNewLineCharacter())
 	logger := NewProgramLogger(false)
 	configuration := ReadConfig("./config.json", logger)
 	loadTester := InitLoadTester(configuration, logger)
