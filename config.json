@@ -1,0 +1,8 @@
+{
+  "RequestUrl": "https://services.ncdr.com/NCDRServices/api/SoftwareVendor/GetSoftwareVendorLists",
+  "RequestVerb": "GET",
+  "PostBody": "{}",
+  "PostContentType": "application/json",
+  "NumberOfTasks": 10000,
+  "CallsPerTask": 5
+}
