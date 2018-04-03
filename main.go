@@ -8,4 +8,6 @@ func main() {
 	configuration := ReadConfig("./config.json", logger)
 	loadTester := InitLoadTester(configuration, logger)
 	loadTester.RunTaskLoop()
+	duration := loadTester.GetAverageDuration()
+	fmt.Printf("Average time per all requests: %s", duration)
 }
