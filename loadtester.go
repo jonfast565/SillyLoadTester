@@ -61,7 +61,7 @@ func (loadTester *LoadTester) RunOnce(task int, call int) {
 
 	if err != nil {
 		loadTester.programLogger.LogError(err.Error())
-		panic(err)
+		//panic(err)
 	}
 
 	if resp.StatusCode >= 400 {
